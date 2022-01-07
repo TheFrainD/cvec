@@ -44,6 +44,6 @@ void cvec_erase(cvec vec, int index);
 #define cvec_insert(vec, index, value) { typeof(value) e = value;_cvec_insert(vec, index, &e); }
 #define cvec_set_at(vec, index, value) { typeof(value) e = value;_cvec_set_at(vec, index, &e); }
 #define cvec_at(vec, index, type) (*((type *)(_cvec_at(vec, index))))
-#define cvec_raw(vec, type) ((type *)_cvec_raw(cvec vec))
+#define cvec_raw(vec, type) ((type *)_cvec_raw(vec))
 
 #endif // !CVEC_H_
