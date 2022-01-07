@@ -33,6 +33,7 @@ void _cvec_push_back(cvec vec, void *value_ptr);
 void _cvec_insert(cvec vec, int index, void *value_ptr);
 void _cvec_set_at(cvec vec, int index, void *value_ptr);
 void *_cvec_at(cvec vec, int index);
+void *_cvec_raw(cvec vec);
 void cvec_destroy(cvec vec);
 int cvec_size(cvec vec);
 void cvec_pop_back(cvec vec);
@@ -43,5 +44,6 @@ void cvec_erase(cvec vec, int index);
 #define cvec_insert(vec, index, value) { typeof(value) e = value;_cvec_insert(vec, index, &e); }
 #define cvec_set_at(vec, index, value) { typeof(value) e = value;_cvec_set_at(vec, index, &e); }
 #define cvec_at(vec, index, type) (*((type *)(_cvec_at(vec, index))))
+#define cvec_raw(vec, type) ((type *)_cvec_raw(cvec vec))
 
 #endif // !CVEC_H_

@@ -115,6 +115,14 @@ void *_cvec_at(cvec vec, int index) {
   return (void *)(((u64)(vec->array)) + (index * vec->stride));
 }
 
+void *_cvec_raw(cvec vec) {
+  if (!vec) {
+    return NULL;
+  }
+
+  return vec->array;
+}
+
 void cvec_destroy(cvec vec) {
   if (!vec) {
     return;
